@@ -1,0 +1,51 @@
+﻿
+/*Common For Max 960*/
+@media only screen and (max-width: 1920px) {
+	.m-txt1 .info h3,.m-txt4 .txt h3{font-size: 7.2916vw;}
+	.m-txt1 .info p,.pop-txt{font-size: 2.0833vw;}
+	.m-txt1 .txt p{font-size: 4.0625vw;}
+	.m-txt4 .desc,.m-txt2 .txt p,.p-txt1{font-size: 3.6458vw;}
+	.m-txt2 .txt span{font-size: 9.375vw;}
+
+}
+
+
+
+/*Common For Max 768*/
+@media only screen and (max-width: 1800px) {
+	.m-txt1 .btn,.m-txt4 .btn{width: 230px;}
+	.m-txt1 .txt{width: 600px;height: 600px;}
+	.m-txt1 .bot{margin-top: 50px;}
+	.m-txt1 .info{padding-top: 10vh;}
+	.m-txt2{padding: 0 150px;}
+	.m-txt3 .pic{width: 400px;height: 400px;}
+	.m-txt3 .video{width: 827px;height: 636px;}
+	.m-txt4 .qr .img{width: 230px;}
+	.m-txt4 .qr .img img{width: 160px;}
+	.m-txt4 .bot{margin: 30px 0;}
+	.m-txt2 .pic{width: 500px;height: 500px;}
+	.m-txt2 .txt{padding-top: 20px;}
+	.m-txt4 .pic{width: 320px;}
+	.m-txt4 .desc{font-size: 2.5vw;}
+}
+
+
+
+/*Common For Max 480*/
+@media only screen and (max-width: 1499px) {
+	.m-txt4 .pic{margin-top: 0;}
+	.m-txt3 .pic{width: 315px;height: 315px;margin-top: 92px;}
+	.m-txt3 .video{width: 650px;height: 500px;}
+	.m-txt1{padding: 0 80px;}
+	.m-txt2 .pic{width: 450px;height: 450px;}
+	.m-txt4{padding: 0 120px;}
+	.pop-video .cont{width: 600px;height: 380px;}
+
+
+}
+
+
+/*Common For Max 320*/
+@media only screen and (max-width: 479px) {
+	.caseDetailBan i{background-attachment: scroll;}
+}

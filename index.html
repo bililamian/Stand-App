@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="wap-font-scale" content="no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" href="css/cui.css" />
+	<link rel="stylesheet" href="css/lib.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/less.css" />
+</head>
+<body>
+
+	<div id="fullpage">
+		<div class="section" id="page1">
+			<div class="m-txt1">
+				<div class="info animated bounceInLeft" ani="animated bounceInLeft">
+					<h3>Stand App</h3>
+					<p>Good habit, start today.</p>
+					<div class="bot">
+						<a href="" class="btn"><img src="images/btn1.png" alt=""></a>
+						<a href="" class="btn"><img src="images/btn2.png" alt=""></a>
+					</div>
+				</div>
+				<div class="txt animated bounceInRight" ani="animated bounceInRight">
+					<p>The way<br>you SIT<br>The way<br>your LIFE</p>
+				</div>
+			</div>
+		</div>
+		<div class="section" id="page2">
+			<div class="g-con">
+				<div class="m-txt2">
+					<div class="pic" ani="animated bounceInLeft"><img src="images/p1.png" alt=""></div>
+					<div class="txt" ani="animated bounceInRight">
+						<span>84%</span>
+						<p>Of people having the waist issue</p>
+					</div>
+				</div>
+			</div>
+			<div class="pop-txt">World Health Organization has listed sedentary as one of the ten leading causes of death and illness</div>
+		</div>
+		<div class="section" id="page3">
+			<ul class="ul-list1" ani="animated bounceInUp">
+				<li>
+					<div class="con">
+						<div class="pic"><img src="images/p2a.png" alt=""></div>
+					</div>
+				</li>
+				<li>
+					<div class="con">
+						<div class="pic"><img src="images/p2b.png" alt=""></div>
+					</div>
+				</li>
+				<li>
+					<div class="con">
+						<div class="pic"><img src="images/p2c.png" alt=""></div>
+					</div>
+				</li>
+			</ul>
+			<p class="p-txt1" ani="animated bounceInUp">Stand App, an App that keeps you on track</p>
+		</div>
+		<div class="section" id="page4">
+			<div class="m-txt3">
+				<div class="pic" ani="animated bounceInLeft"><img src="images/p2.png" alt=""></div>
+				<div class="video" ani="animated bounceInRight">
+					<a href="#pop-video" class="myfancy" data-v="video/z.mp4"><img src="images/p3.png" alt=""></a>
+				</div>
+			</div>
+		</div>
+		<div class="section" id="page5">
+			<div class="m-txt4">
+				<div class="txt" ani="animated bounceInLeft">
+					<h3>Join Today!</h3>
+					<div class="desc">Get it both on IOS/Android store, start your healthy life now!</div>
+					<div class="bot">
+						<a href="" class="btn"><img src="images/btn1.png" alt=""></a>
+						<a href="" class="btn"><img src="images/btn2.png" alt=""></a>
+					</div>
+					<div class="qr">
+						<div class="img"><img src="images/p4.png" alt=""></div>
+						<div class="img"><img src="images/p4.png" alt=""></div>
+					</div>
+				</div>
+				<div class="pic" ani="animated bounceInRight"><img src="images/p5.png" alt=""></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 视频弹窗 -->
+	<div class="pop-video" id="pop-video">
+		<div class="pop-bg"></div>
+	    <div class="cont">
+	        <span class="close"></span>
+	        <div class="video"></div>
+	    </div>
+	</div>
+	<!-- 视频弹窗 end-->
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/lib.js"></script>
+	<script>
+		$('.m-txt2 .pic').mouseenter(function() {
+	        $(this).parents('.g-con').addClass('open')
+	        $(this).parents('.g-con').siblings('.pop-txt').fadeIn();
+	    });
+		$('.m-txt2 .pic').mouseleave(function() {
+	        $(this).parents('.g-con').removeClass('open')
+	        $(this).parents('.g-con').siblings('.pop-txt').fadeOut();
+		});
+	    // 弹出框
+		$('.myfancy').click(function(){
+			 var _id = $(this).attr('href');
+			var _url = $(this).attr('data-v');
+			$('#pop-video .cont .video').html("<video src='"+_url+"'  controls></video>");
+			$(_id).fadeIn();
+		});
+		$('.close,.pop-bg').click(function(){
+		    $(this).parents('#pop-video').fadeOut();
+		    $('#pop-video .cont .video video').remove();
+		});
+	</script>
+
+	<link rel="stylesheet" href="css/jquery.fullPage.css">
+	<script src="js/jquery.easings.min.js"></script>
+	<script src="js/jquery.fullPage.min.js"></script>
+	<link rel="stylesheet" href="css/animate.min.css">
+	<script>
+	$(document).ready(function() {
+         $('#fullpage').fullpage({
+         	anchors: ['section-1', 'section-2', 'section-3','section-4','section-5'],
+             easingcss3: 'ease',
+             scrollingSpeed:500,
+             navigation: false,
+             onLeave: function(nextIndex , index){
+                 $(".section").eq(index-1).find('[ani*="animated"]').each(function(){
+                     var _this = $(this);
+                     var _class = $(this).attr('ani');
+                     var _time = $(this).attr('ani-time');
+                     setTimeout(function(){
+                         _this.stop().addClass(_class);
+                     },_time);
+                     var _thise = $(this);
+                     var _classe = $(this).attr('ani');
+                     _thise.removeClass(_classe);
+                 });
+             }
+         });
+         autoScrolling();
+         $(window).resize(function(){
+             autoScrolling();
+         });
+         function autoScrolling(){
+             var $ww = $(window).width();
+             if($ww <= 959){
+                 $.fn.fullpage.setAutoScrolling(false);
+             } else {
+                 $.fn.fullpage.setAutoScrolling(true);
+             }
+         }
+     });
+	setInterval(function(){
+	 $.fn.fullpage.moveSlideRight()
+	},3000);
+	</script>
+
+
+
+</body>
+</html>
